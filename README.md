@@ -2,12 +2,7 @@
 
 This tutorial requires a few dependencies, here's what you'll need
 
-`npm install @hapi/hapi`
-`npm install @hapipal/schwifty`
-`npm install knex`
-`npm install objection`
-`npm install joi`
-`npm install dotenv`
+`npm install @hapi/hapi @hapipal/schwifty knex objection joi dotenv`
 
 <p>The documentation for @hapi/schwifty can be found <a href="https://hapipal.com/docs/schwifty">here</a></p>
 
