@@ -60,19 +60,8 @@ const init = async () => {
 
   const knex = server.knex();
 
-  // Similar to knex migrations...
-  // Took a bit to figure this one out, similar to exports.down in knex migration files
-  // This is definitely a bit hacky... investigate knex's NotExists clause to see if there's a better way to do this...
-  try {
-    // if the users table exists, then drop the table
-    await knex.raw("select * from users").then(async (res) => {
-      await knex.schema.dropTable("users");
-    });
-  } catch (err) {
-    // otherwise just catch the error and do nothing with it...
-    err;
-  }
-  // either way, create the table users...
+  await knex.schema.dropTableIfExists("users")
+
   await knex.schema.createTable("users", (table) => {
     table.string("id").primary();
     table.string("username").notNullable();
